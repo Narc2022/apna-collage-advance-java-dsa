@@ -19,6 +19,6 @@ public class A5BinomialCoefficient {
     }
 
     public static void main(String args[]) {
-        int n = 
+        System.out.println(binCoff(5, 2));
     }
 }
