@@ -1,9 +1,9 @@
 package A18Array11;
 
 public class A2MaxSumSubArray_PrefixSum {
-    public static int[] SubOfSubArray(int arr[]) {
+    public static int SubOfSubArray(int arr[]) {
         int maxSum = 0;
-        int currentSum = 0;
+        int currSum = 0;
         int prefix[] = new int[arr.length];
 
         prefix[0] = arr[0];
@@ -12,11 +12,22 @@ public class A2MaxSumSubArray_PrefixSum {
             prefix[i] = prefix[i - 1] + arr[i];
         }
 
-        return prefix;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                currSum = i == 0 ? prefix[j] : prefix[j] - prefix[i - 1];
+                // System.out.println("i=" + i + " " + "j=" + j + " " + currSum);
+            }
+            if (maxSum < currSum) {
+                maxSum = currSum;
+            }
+
+        }
+
+        return maxSum;
     }
 
     public static void main(String[] args) {
-        int arr[] = { 1, -2, 6, -1, 3 };
-        System.out.println(SubOfSubArray(arr));
+        int arr[] = { 2, 3, 4, 6, 8, 9 };
+        System.out.println("maxmum sum : " + SubOfSubArray(arr));
     }
 }
