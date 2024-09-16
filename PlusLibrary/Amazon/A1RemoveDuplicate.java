@@ -13,7 +13,7 @@ public class A1RemoveDuplicate {
     public static void main(String args[]) {
         int nums[] = { 0, 1, 1, 1, 2, 2, 3 };
         int i = 0;
-        for (int j = 0; j < nums.length; j++) {3
+        for (int j = 0; j < nums.length; j++) {
             if (nums[i] < nums[j]) { // i=1 j=2
                 int temp = nums[i + 1]; // 1
                 System.out.println("temp" + temp);
